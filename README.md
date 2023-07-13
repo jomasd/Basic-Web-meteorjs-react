@@ -9,7 +9,7 @@ This project is aimed at creating an artist website, similar to a SquareSpace si
 2. Clone this repository:
 
     ```bash
-    git clone https://github.com/yourusername/artist-website.git
+    git clone https://github.com/jomasd/artist-website.git
     ```
 
 3. Navigate into the project directory:
