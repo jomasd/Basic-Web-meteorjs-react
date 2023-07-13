@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './App.jsx';
+import HomePage from './components/HomePage/HomePage';
 
 const AppRouter = () => (
   <Router>
     <Routes>
-      <Route path='/' element={<App />} />
+      <Route path="/" element={<HomePage />} />
       {/* Add more routes as needed */}
     </Routes>
   </Router>
