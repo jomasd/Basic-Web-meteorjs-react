@@ -1,11 +1,12 @@
 import React from 'react';
-import { Hello } from './Hello.jsx';
-import { Info } from './Info.jsx';
 
-export const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello/>
-    <Info/>
-  </div>
-);
+const App = () => {
+  return (
+    <div>
+      <h1>Welcome to the Artist Website!</h1>
+      {/* Add more components or content here */}
+    </div>
+  );
+};
+
+export default App;

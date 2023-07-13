@@ -1,14 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Hello } from './Hello.jsx';
 import App from './App.jsx';
 
-const Router = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={App} />
+const AppRouter = () => (
+  <Router>
+    <Routes>
+      <Route path='/' element={<App />} />
       {/* Add more routes as needed */}
-    </Switch>
-  </BrowserRouter>
+    </Routes>
+  </Router>
 );
 
-export default Router;
+export default AppRouter;
