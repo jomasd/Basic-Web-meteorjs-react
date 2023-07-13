@@ -1,13 +1,18 @@
 import React from 'react';
 
-const PageName = () => {
+const AboutPage = () => {
   return (
     <div>
-      <h1>Welcome to the PageName</h1>
-      <p>This is a brief introduction to the PageName.</p>
-      {/* Add more content as needed */}
+      <h1>About Me</h1>
+      <p>This is a detailed biography about me and my work.</p>
+      <h2>My Philosophy</h2>
+      <p>This is a description of my artistic philosophy.</p>
+      <h2>My Influences</h2>
+      <p>These are my influences.</p>
+      <h2>My Training</h2>
+      <p>This is a description of my training or education.</p>
     </div>
   );
 };
 
-export default PageName;
+export default AboutPage;

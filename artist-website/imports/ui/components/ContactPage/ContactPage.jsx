@@ -1,13 +1,13 @@
 import React from 'react';
+import ContactForm from '../ContactForm/ContactForm';
 
-const PageName = () => {
+const ContactPage = () => {
   return (
     <div>
-      <h1>Welcome to the PageName</h1>
-      <p>This is a brief introduction to the PageName.</p>
-      {/* Add more content as needed */}
+      <h1>Contact Me</h1>
+      <ContactForm />
     </div>
   );
 };
 
-export default PageName;
+export default ContactPage;
