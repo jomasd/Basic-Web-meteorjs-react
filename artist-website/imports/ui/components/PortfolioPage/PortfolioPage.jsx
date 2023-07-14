@@ -1,23 +1,22 @@
 import React from 'react';
+import { withTracker } from 'meteor/react-meteor-data'; 
 import PortfolioItem from '../PortfolioItem/PortfolioItem';
+import { PortfolioItems } from '../../../api/PortfolioItems/PortfolioItems';
 
-const PortfolioPage = () => {
-  const portfolioPieces = [
-    { title: 'Portfolio piece 1', image: '/path/to/image.jpg', description: 'This is the first portfolio piece.' },
-    { title: 'Portfolio piece 2', image: '/path/to/image.jpg', description: 'This is the second portfolio piece.' },
-    // Add more portfolio pieces as needed
-  ];
-
+const PortfolioPage = ({ items }) => {
   return (
     <div>
-      <h1>My Portfolio</h1>
-      <ul>
-        {portfolioPieces.map((piece, index) => (
-          <PortfolioItem key={index} piece={piece} />
-        ))}
-      </ul>
+      <h1>Portfolio</h1>
+      {items.map((item, index) => (
+        <PortfolioItem key={index} item={item} />
+      ))}
     </div>
   );
 };
 
-export default PortfolioPage;
+export default withTracker(() => {
+  return {
+    items: PortfolioItems.find().fetch(),
+  };
+})(PortfolioPage);
+
