@@ -6,6 +6,7 @@ import AboutPage from './components/AboutPage/AboutPage';
 import PortfolioPage from './components/PortfolioPage/PortfolioPage';
 import ContactPage from './components/ContactPage/ContactPage';
 import BlogPage from './components/BlogPage/BlogPage';
+import Dashboard from './components/Dashboard/Dashboard';
 
 const AppRouter = () => (
   <Router>
@@ -16,6 +17,7 @@ const AppRouter = () => (
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/blog" element={<BlogPage />} /> 
+      <Route path="/dashboard/*" element={<Dashboard /> } />
       {/* Add more routes as needed */}
     </Routes>
   </Router>
