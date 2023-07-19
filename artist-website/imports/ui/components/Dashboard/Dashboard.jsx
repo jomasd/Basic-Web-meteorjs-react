@@ -1,11 +1,13 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route , Link} from 'react-router-dom';
+import DashboardNavbar from './DashboardNavbar';
 import BlogManager from './BlogManager';
 import PortfolioManager from './PortfolioManager';
-import { Link } from 'react-router-dom';
+
 const Dashboard = () => {
   return (
     <div>
+        <DashboardNavbar />
       <h1>Dashboard</h1>
       
       <nav>

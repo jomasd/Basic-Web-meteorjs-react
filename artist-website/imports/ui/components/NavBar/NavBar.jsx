@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const Navbar = () => {
+  const user = Meteor.user();
+
   return (
     <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/portfolio">Portfolio</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/dashboard">Dashboard</Link></li>
-      </ul>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/portfolio">Portfolio</Link>
+      <Link to="/blog">Blog</Link>
+      <Link to="/contact">Contact</Link>
+      {user && <Link to="/dashboard">Dashboard</Link>} {/* Only display this link if a user is logged in */}
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
