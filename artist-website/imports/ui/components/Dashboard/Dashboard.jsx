@@ -8,19 +8,11 @@ const Dashboard = () => {
   return (
     <div>
         <DashboardNavbar />
-      <h1>Dashboard</h1>
-      
-      <nav>
-      <ul>
-        <li><Link to="/dashboard/blog">BLOG</Link></li>
-        <li><Link to="/dashboard/portfolio">Portfolio</Link></li>
-      </ul>
-
-    </nav>
-    <Routes>
-        <Route path="blog" element={<BlogManager />} />
-        <Route path="portfolio" element={<PortfolioManager />} />
-      </Routes>
+        <h1>Dashboard</h1>
+        <Routes>
+            <Route path="blog-manager" element={<BlogManager />} />
+            <Route path="portfolio-manager" element={<PortfolioManager />} />
+        </Routes>
     </div>
   );
 };

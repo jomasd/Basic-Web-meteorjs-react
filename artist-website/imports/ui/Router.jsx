@@ -27,7 +27,7 @@ const AppRouter = () => (
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/dashboard" element={PrivateRoute(<Dashboard />)} />
+      <Route path="/dashboard/*" element={PrivateRoute(<Dashboard />)} />
     </Routes>
   </Router>
 );

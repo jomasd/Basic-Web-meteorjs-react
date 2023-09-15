@@ -11,6 +11,8 @@ const Navbar = () => {
       <Link to="/portfolio">Portfolio</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact</Link>
+      <Link to="/login">Log In</Link> {/* Add this line */}
+      <Link to="/register">Register</Link> {/* Add this line */}
       {user && <Link to="/dashboard">Dashboard</Link>} {/* Only display this link if a user is logged in */}
     </nav>
   );

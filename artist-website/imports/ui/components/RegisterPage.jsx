@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Accounts } from 'meteor/accounts-base';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ const RegisterPage = () => {
         console.error(error);
       } else {
         // Redirect the user to the dashboard
-        history.push('/dashboard');
+        navigate('/dashboard');
       }
     });
   };

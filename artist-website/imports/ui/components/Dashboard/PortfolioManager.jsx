@@ -1,6 +1,5 @@
 import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { PortfolioItems } from '../../../api/PortfolioItems/PortfolioItems';
 import AddPortfolioItemForm from './AddPortfolioItemForm';
 
 const PortfolioManager = ({ items }) => {
@@ -10,20 +9,13 @@ const PortfolioManager = ({ items }) => {
 
   return (
     <div>
-      <h2>Manage Portfolio Items</h2>
-      <AddPortfolioItemForm onAdd={handleAdd} />
-      {items.map((item, index) => (
-        <div key={index}>
-          <h3>{item.title}</h3>
-          {/* Add buttons for editing and deleting the item */}
-        </div>
-      ))}
+      <h1>Portfolio Manager</h1>
     </div>
   );
 };
 
 export default withTracker(() => {
   return {
-    items: PortfolioItems.find().fetch(),
+   
   };
 })(PortfolioManager);
