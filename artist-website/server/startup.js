@@ -13,15 +13,5 @@ Meteor.startup(() => {
       // Add any additional fields you need
     });
   }
-  // If the blogPosts collection is empty, add some data.
-  if (BlogPosts.find().count() === 0) {
-    const data = [
-      { title: 'First Post', content: 'This is the first post.' },
-      { title: 'Second Post', content: 'This is the second post.' },
-      { title: 'Third Post', content: 'This is the third post.' },
-      // Add more dummy blog posts as needed
-    ];
-
-    data.forEach((post) => BlogPosts.insert(post));
-  }
+  
 });
