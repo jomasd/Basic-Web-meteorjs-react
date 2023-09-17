@@ -1,0 +1,26 @@
+.comment {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 8px 0;
+    border-radius: 4px;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+  }
+  
+  .comment-timestamp {
+    color: #888;
+    font-size: 12px;
+  }
+  
+  .comment-content {
+    font-size: 14px;
+  }
+  

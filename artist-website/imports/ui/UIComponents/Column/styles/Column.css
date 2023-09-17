@@ -1,0 +1,18 @@
+.column-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .column-layout.normal {
+    gap: 16px;
+  }
+  
+  .column-layout.dense {
+    gap: 8px;
+  }
+  
+  .column-layout.loose {
+    gap: 24px;
+  }
+  
