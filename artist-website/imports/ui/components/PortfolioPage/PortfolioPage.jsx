@@ -1,36 +1,84 @@
-import React from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Portfolio, Artworks } from '../../../api/portfolio/collections';
-import PortfolioItem from '../PortfolioItem/PortfolioItem';
+import React, { useState } from 'react';
 
-const PortfolioPage = ({ portfolio, artworks }) => {
-  const renderCategories = () => {
-    if (!portfolio || !portfolio.categories) return <p>Loading...</p>;
+const PortfolioPage = () => {
+  const [portfolioData, setPortfolioData] = useState({
+    categories: [
+      {
+        categoryId: '1',
+        name: 'Paintings',
+        artworks: [
+          {
+            artworkId: '1',
+            title: 'Sunset',
+            imageUrl: 'https://placehold.co/200',
+          },
+          {
+            artworkId: '2',
+            title: 'Mountain',
+            imageUrl: 'https://placehold.co/200',
+          },
+        ],
+      },
+      {
+        categoryId: '2',
+        name: 'Sculptures',
+        artworks: [
+          {
+            artworkId: '3',
+            title: 'Statue',
+            imageUrl: 'https://placehold.co/200',
+          },
+        ],
+      },
+    ],
+  });
 
-    return portfolio.categories.map((category) => (
-      <div key={category.categoryId}>
-        <h2>{category.name}</h2>
-        <div>
-          {category.artworks.map((artworkId) => {
-            const artwork = artworks.find((art) => art.artworkId === artworkId);
-            return <PortfolioItem key={artworkId} artwork={artwork} />;
-          })}
-        </div>
-      </div>
-    ));
+  const addArtwork = (categoryId, newArtwork) => {
+    const updatedCategories = portfolioData.categories.map((category) => {
+      if (category.categoryId === categoryId) {
+        return {
+          ...category,
+          artworks: [...category.artworks, newArtwork],
+        };
+      }
+      return category;
+    });
+    setPortfolioData({ categories: updatedCategories });
+  };
+
+  const deleteArtwork = (categoryId, artworkId) => {
+    const updatedCategories = portfolioData.categories.map((category) => {
+      if (category.categoryId === categoryId) {
+        return {
+          ...category,
+          artworks: category.artworks.filter((artwork) => artwork.artworkId !== artworkId),
+        };
+      }
+      return category;
+    });
+    setPortfolioData({ categories: updatedCategories });
   };
 
   return (
     <div>
       <h1>Portfolio</h1>
-      {renderCategories()}
+      {portfolioData.categories.map((category) => (
+        <div key={category.categoryId}>
+          <h2>{category.name}</h2>
+          {category.artworks.map((artwork) => (
+            <div key={artwork.artworkId}>
+              <img src={artwork.imageUrl} alt={artwork.title} />
+              <h3>{artwork.title}</h3>
+              <button onClick={() => deleteArtwork(category.categoryId, artwork.artworkId)}>Delete</button>
+            </div>
+          ))}
+          <button onClick={() => addArtwork(category.categoryId, { artworkId: '4', title: 'New Art', imageUrl: 'https://placehold.co/200' })}>
+            Add Artwork
+          </button>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default withTracker(() => {
-  return {
-    portfolio: Portfolio.findOne(),
-    artworks: Artworks.find().fetch(),
-  };
-})(PortfolioPage);
+export default PortfolioPage;

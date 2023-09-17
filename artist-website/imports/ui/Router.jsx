@@ -10,11 +10,28 @@ import BlogPage from './components/BlogPage/BlogPage';
 import Dashboard from './components/Dashboard/Dashboard';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
+import BlogManager from './components/Dashboard/BlogManager';
+import PortfolioManager from './components/Dashboard/PortfolioManager';
+import DashboardNavbar from './components/Dashboard/DashboardNavbar';
+import PortfolioItem from './components/PortfolioItem/PortfolioItem';
 
 const PrivateRoute = (Component) => {
   const user = useTracker(() => Meteor.user());
   return user ? Component : <Navigate to="/login" />;
 };
+
+const DashboardRoutes = () => (
+  <>
+    <DashboardNavbar />
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/portfolio-manager" element={<PortfolioManager/>} />
+      <Route path="/blog-manager" element={<BlogManager />} />
+      {/* Add more dashboard-specific routes here */}
+    </Routes>
+  </>
+);
+
 
 const AppRouter = () => (
   <Router>
@@ -23,11 +40,12 @@ const AppRouter = () => (
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path="/:year/:artworkId" element={<PortfolioItem />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/dashboard/*" element={PrivateRoute(<Dashboard />)} />
+      <Route path="/dashboard/*" element={PrivateRoute(<DashboardRoutes />)} />
     </Routes>
   </Router>
 );

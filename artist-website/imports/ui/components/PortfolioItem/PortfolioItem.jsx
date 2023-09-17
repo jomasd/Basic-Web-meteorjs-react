@@ -1,38 +1,26 @@
+// PortfolioItemPage.jsx
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
-const PortfolioItem = ({ artwork }) => {
-  if (!artwork) return null;
+const PortfolioItemPage = () => {
+  const { itemId } = useParams();
+
+  // Fetch the portfolio item data based on itemId
+  // For now, let's mock the data
+  const portfolioItem = {
+    itemId: 'nvxh82d4potdmtqvwko9s9h1e47g36',
+    title: 'Sample Artwork',
+    imageUrl: 'https://placehold.co/200',
+    description: 'This is a sample description.',
+  };
 
   return (
-    <div className="portfolio-item">
-      <img src={artwork.imageUrl} alt={artwork.title} />
-      <div className="portfolio-item-info">
-        <h3>{artwork.title}</h3>
-        <p>{artwork.description}</p>
-        <p>Medium: {artwork.medium}</p>
-        <p>Dimensions: {artwork.dimensions}</p>
-        <p>Year: {artwork.yearCreated}</p>
-        {artwork.price && <p>Price: ${artwork.price}</p>}
-        <p>Status: {artwork.status}</p>
-      </div>
+    <div>
+      <h1>{portfolioItem.title}</h1>
+      <img src={portfolioItem.imageUrl} alt={portfolioItem.title} />
+      <p>{portfolioItem.description}</p>
     </div>
   );
 };
 
-PortfolioItem.propTypes = {
-  artwork: PropTypes.shape({
-    artworkId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    medium: PropTypes.string.isRequired,
-    dimensions: PropTypes.string.isRequired,
-    yearCreated: PropTypes.number.isRequired,
-    imageUrl: PropTypes.string.isRequired,
-    isFeatured: PropTypes.bool,
-    price: PropTypes.number,
-    status: PropTypes.string.isRequired,
-  }),
-};
-
-export default PortfolioItem;
+export default PortfolioItemPage;

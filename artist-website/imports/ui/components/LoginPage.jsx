@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useNavigate } from 'react-router-dom';
+import { useTracker } from 'meteor/react-meteor-data';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const user = useTracker(() => Meteor.user());
+
+  // Redirect to dashboard if user is already logged in
+  if (user) {
+    navigate('/dashboard');
+    return null;
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();

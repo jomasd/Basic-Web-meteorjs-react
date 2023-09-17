@@ -1,8 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 
 const Navbar = () => {
-  const user = Meteor.user();
+  const user = useTracker(() => Meteor.user());
+
+  const handleLogout = () => {
+    Meteor.logout((err) => {
+      if (err) {
+        console.error("Logout failed", err);
+      } else {
+        // Redirect to home or login page
+      }
+    });
+  };
 
   return (
     <nav>
@@ -11,9 +23,17 @@ const Navbar = () => {
       <Link to="/portfolio">Portfolio</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact</Link>
-      <Link to="/login">Log In</Link> {/* Add this line */}
-      <Link to="/register">Register</Link> {/* Add this line */}
-      {user && <Link to="/dashboard">Dashboard</Link>} {/* Only display this link if a user is logged in */}
+      {user ? (
+        <>
+          <Link to="/dashboard">Dashboard</Link>
+          <button onClick={handleLogout}>Sign Out</button>
+        </>
+      ) : (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </>
+      )}
     </nav>
   );
 };
