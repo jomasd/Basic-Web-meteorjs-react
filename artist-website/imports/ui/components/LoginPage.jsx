@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useNavigate } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
+import Button from '../UIComponents/Button/Button';
+import TextInput from '../UIComponents/TextInput/TextInput';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -33,19 +35,19 @@ const LoginPage = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <TextInput
         type="text"
         value={username}
         onChange={(event) => setUsername(event.target.value)}
         placeholder="Username"
       />
-      <input
+      <TextInput
         type="password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
         placeholder="Password"
       />
-      <button type="submit">Log In</button>
+      <Button label="Log In" type="submit" />
     </form>
   );
 };

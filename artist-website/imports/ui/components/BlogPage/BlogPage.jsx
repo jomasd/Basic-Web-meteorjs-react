@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import Button from '../../UIComponents/Button/Button';
+import TextInput from '../../UIComponents/TextInput/TextInput';
+import TextArea from '../../UIComponents/TextArea/TextArea';
+import Checkbox from '../../UIComponents/Checkbox/Checkbox';
+import RadioButton from '../../UIComponents/RadioButton/RadioButton';
 
 // Initial mock data
 const initialBlogPosts = [
@@ -34,6 +39,8 @@ const BlogPage = () => {
     const postToEdit = blogPosts.find((post) => post._id === id);
     setNewPost(postToEdit);
   };
+  const [isChecked, setIsChecked] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('option1');
 
   return (
     <div>
@@ -51,24 +58,43 @@ const BlogPage = () => {
       </ul>
       <div>
         <h2>Add/Edit Blog Post</h2>
-        <input
-          type="text"
-          placeholder="Title"
-          value={newPost.title}
-          onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
+        <TextInput
+        type="text"
+        placeholder="Title"
+        value={newPost.title}
+        onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
         />
-        <textarea
+        <TextArea
           placeholder="Content"
           value={newPost.content}
           onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
-        ></textarea>
-        <input
+        />
+        <TextInput
           type="text"
           placeholder="Author"
           value={newPost.author}
           onChange={(e) => setNewPost({ ...newPost, author: e.target.value })}
         />
-        <button onClick={addPost}>Submit</button>
+        <Checkbox
+          label="I agree to the terms and conditions"
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <RadioButton
+          name="sampleRadio"
+          label="Option 1"
+          value="option1"
+          checked={selectedValue === 'option1'}
+          onChange={(e) => setSelectedValue(e.target.value)}
+        />
+        <RadioButton
+          name="sampleRadio"
+          label="Option 2"
+          value="option2"
+          checked={selectedValue === 'option2'}
+          onChange={(e) => setSelectedValue(e.target.value)}
+        />
+        <Button label="Submit" onClick={addPost} />
       </div>
     </div>
   );
