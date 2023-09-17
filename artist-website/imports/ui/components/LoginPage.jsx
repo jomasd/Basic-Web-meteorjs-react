@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useNavigate } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -9,25 +9,27 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const user = useTracker(() => Meteor.user());
 
-  // Redirect to dashboard if user is already logged in
-  if (user) {
-    navigate('/dashboard');
-    return null;
-  }
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     Meteor.loginWithPassword(username, password, (error) => {
       if (error) {
-        // Handle the error
         console.error(error);
       } else {
-        // Redirect the user to the dashboard
-        navigate('/dashboard');
+        // No need to navigate here, useEffect will handle it
       }
     });
   };
+
+  if (user) {
+    return null; // or a loading spinner, or nothing, depending on your design
+  }
 
   return (
     <form onSubmit={handleSubmit}>
