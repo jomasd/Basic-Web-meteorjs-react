@@ -20,6 +20,13 @@ import Comment from '../../UIComponents/Comment/Comment';
 import Container from '../../UIComponents/Container/Container';
 import Countdown from '../../UIComponents/Countdown/Countdown';
 import Cover from '../../UIComponents/Cover/Cover';
+import DataTable from '../../UIComponents/DataTables/DataTables';
+import DatePicker from '../../UIComponents/DatePicker/DatePicker';
+import DescriptionList from '../../UIComponents/DescriptionList/DescriptionList';
+import Dialog from '../../UIComponents/Dialogs/Dialogs';
+import Divider from '../../UIComponents/Dividers/Dividers';
+import Dotnav from '../../UIComponents/Dotnav/Dotnav';
+
 
 const HomePage = () => {
   const blogPosts = [
@@ -58,24 +65,55 @@ const HomePage = () => {
     setChips(chips.filter(chip => chip.id !== id));
   };
   const targetDate = new Date('2023-12-31T00:00:00');
+  const headers = ['Name', 'Age', 'Email'];
+  const data = [
+    { Name: 'Alice', Age: 28, Email: 'alice@example.com' },
+    { Name: 'Bob', Age: 32, Email: 'bob@example.com' },
+    { Name: 'Charlie', Age: 22, Email: 'charlie@example.com' },
+  ];
+  const handleDateChange = (date) => {
+    console.log(`Selected date: ${date}`);
+  };
+
+  const descriptionData = {
+    'Name': 'Alice',
+    'Age': 28,
+    'Email': 'alice@example.com'
+  };
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div>
       <h1>Welcome to My Artist Website</h1>
       <p>This is a brief introduction to who I am and what I do.</p>
-      <h2>Blog</h2>
-      <ul>
-        {blogPosts.map((post, index) => (
-          <BlogPost key={index} post={post} />
-        ))}
-      </ul>
-      <h2>Portfolio Highlights</h2>
-      <ul>
-        {portfolioHighlights.map((piece, index) => (
-          <PortfolioHighlight key={index} piece={piece} />
-        ))}
-      </ul>
+     
       <div>
         <div>
+          <h1>Dialog</h1>
+          <button onClick={() => setDialogOpen(true)}>Open Dialog</button>
+          <Dialog isOpen={isDialogOpen} onClose={() => setDialogOpen(false)}>
+            <p>This is a dialog.</p>
+          </Dialog>
+
+          <h1>Divider</h1>
+          <Divider />
+
+          <h1>Dotnav</h1>
+          <Dotnav count={5} activeIndex={activeIndex} onSelect={setActiveIndex} />
+        </div>
+        <div>
+        <h1>Date Picker</h1>
+        <DatePicker onDateChange={handleDateChange} />
+
+        <h1>Description List</h1>
+        <DescriptionList data={descriptionData} />
+      </div>
+        <div>
+
+        <div>
+          <h1>Data Table</h1>
+          <DataTable headers={headers} data={data} />
+        </div>
           <Cover mediaType="image" mediaSrc="https://placeholder.co/300">
             <h1>Your Content Here</h1>
           </Cover>

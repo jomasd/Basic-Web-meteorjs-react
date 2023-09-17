@@ -1,0 +1,17 @@
+.dotnav {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dotnav button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+  }
+  
+  .dotnav .active {
+    background: #333;
+  }
+  
