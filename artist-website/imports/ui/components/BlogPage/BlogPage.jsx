@@ -51,8 +51,8 @@ const BlogPage = () => {
             <h2>{post.title}</h2>
             <p>{post.content}</p>
             <small>Author: {post.author}</small>
-            <button onClick={() => deletePost(post._id)}>Delete</button>
-            <button onClick={() => editPost(post._id)}>Edit</button>
+            <Button onClick={() => deletePost(post._id)} label="Delete" />
+            <Button onClick={() => editPost(post._id)} label="Edit" />
           </li>
         ))}
       </ul>

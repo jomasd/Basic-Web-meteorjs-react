@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Button from '../../UIComponents/Button/Button';
 const PortfolioPage = () => {
   const [portfolioData, setPortfolioData] = useState({
     categories: [
@@ -69,12 +69,10 @@ const PortfolioPage = () => {
             <div key={artwork.artworkId}>
               <img src={artwork.imageUrl} alt={artwork.title} />
               <h3>{artwork.title}</h3>
-              <button onClick={() => deleteArtwork(category.categoryId, artwork.artworkId)}>Delete</button>
+              <Button onClick={() => deleteArtwork(category.categoryId, artwork.artworkId)} label="Delete Artwork" />
             </div>
           ))}
-          <button onClick={() => addArtwork(category.categoryId, { artworkId: '4', title: 'New Art', imageUrl: 'https://placehold.co/200' })}>
-            Add Artwork
-          </button>
+          <Button onClick={() => addArtwork(category.categoryId, { artworkId: '4', title: 'New Art', imageUrl: 'https://placehold.co/200' })} label="Add Artwork" />
         </div>
       ))}
     </div>

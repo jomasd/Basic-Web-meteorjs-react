@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import DashboardNavbar from './DashboardNavbar';
+import Checkbox from '../../UIComponents/Checkbox/Checkbox';
+
 // Mock Data
 const mockData = [
   {
@@ -55,14 +57,11 @@ const Dashboard = () => {
         <h2>Customize Fields</h2>
         {fields.map((field) => (
           <div key={field.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={field.isVisible}
-                onChange={() => toggleField(field.id)}
-              />
-              {field.title}
-            </label>
+            <Checkbox
+              label={field.title}
+              checked={field.isVisible}
+              onChange={() => toggleField(field.id)}
+            />
           </div>
         ))}
       </div>
