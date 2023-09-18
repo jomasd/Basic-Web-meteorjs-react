@@ -43,6 +43,10 @@ import Lightbox from '../../UIComponents/Lightbox/Lightbox';
 import Link from '../../UIComponents/Link/Link';
 import List from '../../UIComponents/List/List';
 import Menus from '../../UIComponents/Menus/Menus';
+import OffCanvas from '../../UIComponents/OffCanvas/OffCanvas';
+import Overlay from '../../UIComponents/Overlay/Overlay';
+import Modal from '../../UIComponents/Modal/Modal';
+import Nav from '../../UIComponents/Nav/Nav';
 
 const HomePage = () => {
   const blogPosts = [
@@ -135,12 +139,41 @@ const HomePage = () => {
   const handleSubmit = (value) => {
     alert(`Form submitted with value: ${value}`);
   };
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  };
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' }
+  ];
   return (
     <div>
       <h1>Welcome to My Artist Website</h1>
       <p>This is a brief introduction to who I am and what I do.</p>
      
       <div>
+        <Nav items={navItems} />
+        <div>
+          <button onClick={toggleModal}>Open Modal</button>
+          <Modal show={showModal} onClose={toggleModal}>
+            <h1>Hello, I'm a Modal!</h1>
+            <p>This is the modal content.</p>
+          </Modal>
+        </div>
+        <button onClick={toggleOverlay}>Toggle Overlay</button>
+        <Overlay show={showOverlay} onClick={toggleOverlay} />
+
+        <OffCanvas>
+          <p>Some sidebar content here.</p>
+        </OffCanvas>
         <Menus options={['Option 1', 'Option 2', 'Option 3']} />
         <List items={['Apple', 'Banana', 'Cherry']} />
         <List items={['First', 'Second', 'Third']} ordered />

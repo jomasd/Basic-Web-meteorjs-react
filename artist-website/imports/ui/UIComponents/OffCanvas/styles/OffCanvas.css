@@ -1,0 +1,27 @@
+.offcanvas-container {
+    position: relative;
+  }
+  
+  .offcanvas-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .offcanvas-content {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #111;
+    color: white;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .offcanvas-content.open {
+    right: 0;
+  }
+  

@@ -14,6 +14,7 @@ import BlogManager from './components/Dashboard/BlogManager';
 import PortfolioManager from './components/Dashboard/PortfolioManager';
 import DashboardNavbar from './components/Dashboard/DashboardNavbar';
 import PortfolioItem from './components/PortfolioItem/PortfolioItem';
+import ComponentLibraryPage from './components/Components-Library/ComponentLibraryPage';
 
 const PrivateRoute = (Component) => {
   const user = useTracker(() => Meteor.user());
@@ -46,6 +47,7 @@ const AppRouter = () => (
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/dashboard/*" element={PrivateRoute(<DashboardRoutes />)} />
+      <Route path='/library' element={<ComponentLibraryPage />} />
     </Routes>
   </Router>
 );
