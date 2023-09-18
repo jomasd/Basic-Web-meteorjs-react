@@ -1,0 +1,9 @@
+.custom-list {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .custom-list li {
+    margin-bottom: 8px;
+  }
+  

@@ -26,7 +26,23 @@ import DescriptionList from '../../UIComponents/DescriptionList/DescriptionList'
 import Dialog from '../../UIComponents/Dialogs/Dialogs';
 import Divider from '../../UIComponents/Dividers/Dividers';
 import Dotnav from '../../UIComponents/Dotnav/Dotnav';
-
+import Dropdown from '../../UIComponents/Dropdown/Dropdown';
+import Drop from '../../UIComponents/Drop/Drop';
+import Dropbar from '../../UIComponents/Dropbar/Dropbar';
+import Dropnav from '../../UIComponents/Dropnav/Dropnav';
+import ExtendedFAB from '../../UIComponents/ExtendedFAB/ExtendedFAB';
+import Filter from '../../UIComponents/Filter/Filter';
+import FloatingActionButtons from '../../UIComponents/FloatingActionButtons/FloatingActionButtons';
+import Form from '../../UIComponents/Form/Form';
+import Heading from '../../UIComponents/Heading/Heading';
+import Grid from '../../UIComponents/Grid/Grid';
+import Image from '../../UIComponents/Image/Image';
+import Label from '../../UIComponents/Label/Label';
+import Leader from '../../UIComponents/Leader/Leader';
+import Lightbox from '../../UIComponents/Lightbox/Lightbox';
+import Link from '../../UIComponents/Link/Link';
+import List from '../../UIComponents/List/List';
+import Menus from '../../UIComponents/Menus/Menus';
 
 const HomePage = () => {
   const blogPosts = [
@@ -82,12 +98,116 @@ const HomePage = () => {
   };
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const dropdownOptions = ['Option 1', 'Option 2', 'Option 3'];
+  const dropnavItems = [
+    { label: 'Home', link: '#' },
+    { label: 'About', link: '#' },
+    { label: 'Contact', link: '#' },
+  ];
+  const triggerElement = <button>Hover Me!</button>;
+  const dropContent = <div>Your Drop Content Here</div>;
+  const dropbarContent = <div>Your Dropbar Content Here</div>;
+  const menuItems = [
+    {
+      label: 'Home',
+      dropdownContent: <div>Home Content</div>,
+    },
+    {
+      label: 'About',
+      dropdownContent: <div>About Content</div>,
+    },
+    // Add more items here
+  ];
+  const handleClick = () => {
+    alert('Extended FAB clicked!');
+  };
+  const [data2, setData2] = useState(['Apple', 'Banana', 'Cherry']);
+  const [filteredData, setFilteredData] = useState(data2);
+
+  const handleFilter = (term) => {
+    setFilteredData(
+      data2.filter((item) => item.toLowerCase().includes(term.toLowerCase()))
+    );
+  };
+  const handleClick2 = () => {
+    alert('FAB Clicked!');
+  };
+  const handleSubmit = (value) => {
+    alert(`Form submitted with value: ${value}`);
+  };
   return (
     <div>
       <h1>Welcome to My Artist Website</h1>
       <p>This is a brief introduction to who I am and what I do.</p>
      
       <div>
+        <Menus options={['Option 1', 'Option 2', 'Option 3']} />
+        <List items={['Apple', 'Banana', 'Cherry']} />
+        <List items={['First', 'Second', 'Third']} ordered />
+        <Link to="/about" label="About Us" />
+        <Link to="https://www.example.com" label="Visit Example" external />
+        <Lightbox src="https://placeholder.co/600" alt="Description" />
+        <Leader title="Chicken Curry" content="$12.99" />
+        <Leader title="Introduction" content="Page 1" />
+        <div>
+          <Label content="Important Note" type="important" />
+
+          <Label content="Highlighted Content" type="highlight" />
+        </div>
+        <Image src="https://placeholder.co/300" alt="Description" rounded />
+        
+        <div>
+          <Grid columns={3}>
+            <div>Column 1</div>
+            <div>Column 2</div>
+            <div>Column 3</div>
+          </Grid>
+          <div>
+            <Heading level={1} text="This is an H1 Heading" />
+            <Heading level={2} text="This is an H2 Heading" />
+            <Heading level={3} text="This is an H3 Heading" />
+          </div>
+          <div>
+            <h1>Form Example</h1>
+            <Form onSubmit={handleSubmit} />
+          </div>
+          <div>
+            <h1>Floating Action Button Example</h1>
+            <FloatingActionButtons onClick={handleClick2} />
+          </div>
+          <div>
+            <h1>Filter Component Example</h1>
+            <Filter data={data} onFilter={handleFilter} />
+            <ul>
+              {filteredData.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h1>ExtendedFAB Component Example</h1>
+            <ExtendedFAB
+              label="Add Item"
+              icon={<i className="material-icons">add</i>}
+              onClick={handleClick}
+            />
+          </div>
+          <h1>Drop</h1>
+          <Drop trigger={triggerElement} content={dropContent} />
+
+          <div>
+            <h1>Dropbar Component Example</h1>
+            <Dropbar triggerElement={triggerElement} dropbarContent={dropbarContent} />
+          </div>
+
+          <h1>Dropdown</h1>
+          <Dropdown options={dropdownOptions} onSelect={(option) => alert(option)} />
+
+          <div>
+            <h1>Dropnav Component Example</h1>
+            <Dropnav menuItems={menuItems} />
+          </div>
+        </div>
         <div>
           <h1>Dialog</h1>
           <button onClick={() => setDialogOpen(true)}>Open Dialog</button>

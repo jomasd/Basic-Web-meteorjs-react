@@ -1,0 +1,12 @@
+.drop-container {
+    position: relative;
+  }
+  
+  .drop-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    /* Add your styles here */
+  }
+  

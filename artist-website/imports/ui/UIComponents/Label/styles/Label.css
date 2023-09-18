@@ -1,0 +1,16 @@
+.label {
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  .label-important {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .label-highlight {
+    background-color: #ffeb3b;
+    color: black;
+  }
+  

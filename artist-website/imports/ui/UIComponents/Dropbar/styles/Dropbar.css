@@ -1,0 +1,18 @@
+.dropbar-container {
+    position: relative;
+  }
+  
+  .dropbar-trigger {
+    cursor: pointer;
+  }
+  
+  .dropbar-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+  

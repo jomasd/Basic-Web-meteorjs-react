@@ -1,0 +1,24 @@
+.leader-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .leader-title,
+  .leader-content {
+    flex-shrink: 0;
+  }
+  
+  .leader-dots {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .leader-dots::before {
+    content: "..............................................................................................................................................................................................................................................................................";
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  

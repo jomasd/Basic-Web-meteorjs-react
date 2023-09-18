@@ -1,0 +1,30 @@
+.menu-container {
+    position: relative;
+  }
+  
+  .menu-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .menu-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .menu-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .menu-item:hover {
+    background-color: #f1f1f1;
+  }
+  
