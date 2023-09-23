@@ -1,0 +1,31 @@
+/* NavigationBar.css */
+.navigationBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #6200ea;
+    color: white;
+    padding: 16px;
+  }
+  
+  .menu-item {
+    margin: 0 16px;
+    position: relative;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+  
+  .dropdown a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #000;
+  }
+  

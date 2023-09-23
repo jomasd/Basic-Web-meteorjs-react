@@ -1,0 +1,39 @@
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #6200ea;
+    color: #fff;
+  }
+  
+  /* Menu item styles */
+  .menu-item {
+    display: inline-block;
+    margin-left: 20px;
+    position: relative;
+  }
+  
+  /* Link styles */
+  .menu-item a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Dropdown styles */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #6200ea;
+    border-radius: 4px;
+  }
+  
+  /* Dropdown item styles */
+  .dropdown a {
+    display: block;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
