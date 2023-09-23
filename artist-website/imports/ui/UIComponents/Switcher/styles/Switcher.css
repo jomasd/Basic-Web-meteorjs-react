@@ -1,0 +1,29 @@
+.switcher {
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .switcher.on {
+    background-color: #4CAF50;
+  }
+  
+  .switcher-toggle {
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: left 0.3s;
+  }
+  
+  .switcher.on .switcher-toggle {
+    left: 31px;
+  }
+  

@@ -1,0 +1,18 @@
+.sortable-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .sortable-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+  

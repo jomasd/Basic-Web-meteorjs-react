@@ -1,12 +1,12 @@
 import React from 'react';
-import './styles/Progress.scss';
+import './styles/Progress.css'
 
-export const Progress = ({ value, max }) => {
-  const percentage = (value / max) * 100;
-
+const Progress = ({ value, max }) => {
   return (
-    <div className="progress-bar">
-      <div className="progress-fill" style={{ width: `${percentage}%` }}></div>
+    <div className="progress-container">
+      <div className="progress-bar" style={{ width: `${(value / max) * 100}%` }}></div>
     </div>
   );
 };
+
+export default Progress;

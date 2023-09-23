@@ -1,0 +1,6 @@
+/* Scroll.css */
+.scroll-container {
+    overflow-y: auto;
+    height: 100%;
+  }
+  

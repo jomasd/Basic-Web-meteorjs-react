@@ -1,0 +1,17 @@
+/* ScrollSpy.css */
+.scrollspy-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  
+  .scrollspy-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .scrollspy-item.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  

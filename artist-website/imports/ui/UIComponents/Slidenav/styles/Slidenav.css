@@ -1,0 +1,22 @@
+.slidenav-container {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .slidenav-item {
+    flex: 1;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .slidenav-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .slidenav-item.active {
+    border-bottom: 2px solid #9c27b0;
+    font-weight: bold;
+  }
+  

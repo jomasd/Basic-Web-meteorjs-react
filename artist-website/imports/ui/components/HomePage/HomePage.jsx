@@ -51,6 +51,29 @@ import Notification from '../../UIComponents/Notification/Notification';
 import Padding from '../../UIComponents/Padding/Padding';
 import Pagination from '../../UIComponents/Pagination/Pagination';
 import Parallax from '../../UIComponents/Parallax/Parallax';
+import Progress from '../../UIComponents/Progress/Progress';
+import ProgressIndicator from '../../UIComponents/ProgressIndicators/ProgressIndicators';
+import Section from '../../UIComponents/Section/Section';
+import SegmentedButton from '../../UIComponents/SegmentedButton/SegmentedButton';
+import SlideNav from '../../UIComponents/Slidenav/Slidenav';
+import Slider from '../../UIComponents/Slider/Slider';
+import Sliders from '../../UIComponents/Sliders/Sliders';
+import Slideshow from '../../UIComponents/Slideshow/Slideshow';
+import Snackbar from '../../UIComponents/Snackbar/Snackbar';
+import Snackbars from '../../UIComponents/Snackbars/Snackbars';
+import Sortable from '../../UIComponents/Sortable/Sortable';
+import Spinner from '../../UIComponents/Spinner/Spinner';
+import Subnav from '../../UIComponents/Subnav/Subnav';
+import SVG from '../../UIComponents/SVG/SVG';
+import Switcher from '../../UIComponents/Switcher/Switcher';
+import Switches from '../../UIComponents/Switches/Switches';
+import Table from '../../UIComponents/Table/Table';
+import Tabs from '../../UIComponents/Tabs/Tabs';
+import Thumbnav from '../../UIComponents/Thumbnav/Thumbnav';
+import Tile from '../../UIComponents/Tile/Tile';
+import TimePicker from '../../UIComponents/TimePicker/TimePicker';
+import Tooltip from '../../UIComponents/Tooltips/Tooltips';
+
 
 const HomePage = () => {
   const actions = [
@@ -162,13 +185,170 @@ const HomePage = () => {
   const handleCloseNotification = () => {
     setShowNotification(false);
   };
-  return (
-    <div>
-      <h1>Progress Bar</h1>
-      <Progress value={progress} max={100} />
+  const [currentStep, setCurrentStep] = useState(1);
+  const totalSteps = 5;
+  const [volume, setVolume] = useState(50);
+  const [red, setRed] = useState(128);
+  const [green, setGreen] = useState(128);
+  const [blue, setBlue] = useState(128);
 
-      <h1>Progress Indicator</h1>
-      <ProgressIndicator />
+  const [showSnackbar, setShowSnackbar] = useState(false);
+  const itemsw = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  const subnavItems = [
+    { label: 'Sub Item 1', link: '#1' },
+    { label: 'Sub Item 2', link: '#2' },
+    { label: 'Sub Item 3', link: '#3' },
+  ];
+  const svgPath = "M10 1.6c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8zM10 18c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8zM12.6 7.8l-4.6 4.6-1.4-1.4 4.6-4.6 1.4 1.4z";
+  
+  const handleSwitchChange = (newState) => {
+    console.log("Switcher is now:", newState ? "ON" : "OFF");
+  };
+  const handleSwitchChange2 = (selectedOption) => {
+    console.log("Selected option:", selectedOption);
+  };
+  const headers2 = ['Name', 'Age', 'Email'];
+  const data3 = [
+    { Name: 'Alice', Age: 28, Email: 'alice@example.com' },
+    { Name: 'Bob', Age: 32, Email: 'bob@example.com' },
+    { Name: 'Charlie', Age: 22, Email: 'charlie@example.com' },
+  ];
+  const tabsData = [
+    { label: 'Tab 1', content: <div>Content for Tab 1</div> },
+    { label: 'Tab 2', content: <div>Content for Tab 2</div> },
+    { label: 'Tab 3', content: <div>Content for Tab 3</div> },
+  ];
+  const thumbnavData = [
+    { label: 'Item 1', thumbnail: 'https://placeholder.co/300', link: '#item1' },
+    { label: 'Item 2', thumbnail: 'https://placeholder.co/300', link: '#item2' },
+    { label: 'Item 3', thumbnail: 'https://placeholder.co/300', link: '#item3' },
+  ];
+  const handleTimeSelection = (selectedTime) => {
+    console.log(`Selected Time: ${selectedTime}`);
+  };
+  const handleToggleChange2 = (isChecked) => {
+    console.log(`Toggle is ${isChecked ? 'ON' : 'OFF'}`);
+  };
+  
+
+  return (
+
+    <div >
+      <div>
+        <h1>Tooltip Example</h1>
+        <Tooltip content="This is a tooltip!">
+          <button>Hover over me!</button>
+        </Tooltip>
+      </div>
+      <div>
+        <h1>TimePicker Component</h1>
+        <TimePicker onTimeChange={handleTimeSelection} />
+      </div>
+      <div>
+        <h1>Tile Component</h1>
+        <Tile 
+          image="https://placeholder.co/300"
+          title="Tile Title"
+          description="This is a description for the tile."
+          onClick={() => console.log('Tile clicked!')}
+        />
+      </div>
+      <div>
+        <h1>Thumbnav Component</h1>
+        <Thumbnav items={thumbnavData} />
+      </div>
+      <div>
+        <h1>Tabs Component</h1>
+        <Tabs tabs={tabsData} />
+      </div>
+      <div>
+        <h1>Table Component</h1>
+        <Table headers={headers2} data={data3} />
+      </div>
+      <div>
+        <h1>Switches Component</h1>
+        <Switches options={['Option 1', 'Option 2', 'Option 3']} onChange={handleSwitchChange2} />
+      </div>
+      <div>
+        <h1>Switcher Component</h1>
+        <Switcher onChange={handleSwitchChange} />
+      </div>
+      <div>
+        <h1>SVG Example</h1>
+        <SVG path={svgPath} width="40px" height="40px" fill="#3f51b5" />
+      </div>
+      <div>
+        <h1>Your Main Content Here</h1>
+        <Subnav items={subnavItems} />
+      </div>
+      <div>
+        <h1>Loading...</h1>
+        <Spinner />
+      </div>
+      <div>
+        <h1>Sortable List</h1>
+        <Sortable items={itemsw} />
+      </div>
+      <div>
+        <Snackbars />
+      </div>
+      <div>
+        <button onClick={() => setShowSnackbar(true)}>Show Snackbar</button>
+        {showSnackbar && <Snackbar message="Operation successful!" onClose={() => setShowSnackbar(false)} />}
+      </div>
+      <br ></br>
+      <div className="color-picker">
+        <div style={{ backgroundColor: `rgb(${red}, ${green}, ${blue})`, width: '100px', height: '100px' }}></div>
+        <Slider value={red} onChange={setRed} max={255} />
+        <Slider value={green} onChange={setGreen} max={255} />
+        <Slider value={blue} onChange={setBlue} max={255} />
+      </div>
+    <div>
+      <Slideshow
+        images={[
+          'https://placeholder.co/300',
+          'https://placeholder.co/600',
+          'https://placeholder.co/900',
+        ]}
+      />
+    </div>
+      <br ></br>
+      <div className="volume-control">
+        <Slider value={volume} onChange={setVolume} />
+      </div>
+      <br ></br>
+      <div>
+        <Section>
+          <h1>Welcome to the Section</h1>
+          <p>This is a simple section component.</p>
+        </Section>
+        <br ></br>
+        <SegmentedButton
+          options={[
+            { label: 'Option 1', value: 'option1' },
+            { label: 'Option 2', value: 'option2' },
+            { label: 'Option 3', value: 'option3' },
+          ]}
+        />
+        <br ></br>
+        <SlideNav items={['Home', 'About', 'Contact']} />
+      </div>
+      <div>
+        <h1>Progress Example</h1>
+        
+        <Progress value={currentStep} max={totalSteps} />
+        <br ></br>
+        <ProgressIndicator step={currentStep} totalSteps={totalSteps} />
+        <br ></br>
+        <button onClick={() => setCurrentStep(prev => Math.max(prev - 1, 0))}>
+          Prev Step
+        </button>
+        <button onClick={() => setCurrentStep(prev => Math.min(prev + 1, totalSteps))}>
+          Next Step
+        </button>
+        
+      </div>
+      {/* <ProgressIndicator /> */}
       {/* Parallax Example */}
       {/* Display a parallax component with an image */}
       <Parallax image="https://placeholder.co/600" />
